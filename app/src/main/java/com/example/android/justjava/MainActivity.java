@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayMessage("Total " + NumberFormat.getCurrencyInstance().format(numberOfCoffees) + "\n" + "Thankyou!");
+        displayMessage("Total " + NumberFormat.getCurrencyInstance().format(numberOfCoffees * 5) + "\n" + "Thankyou!");
     }
 
     /**
