@@ -24,8 +24,8 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="16dp"
-            android:text="+"
-            android:onClick="incrementQuantity"/>
+            android:text="-"
+            android:onClick="decrementQuantity"/>
 
         <TextView
             android:id="@+id/quantity_text_view"
@@ -40,8 +40,9 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="16dp"
-            android:text="-"
-            android:onClick="decrementQuantity"/>
+            android:text="+"
+            android:onClick="incrementQuantity"/>
+
 
     </LinearLayout>
 
