@@ -48,8 +48,11 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the - button is clicked.
      */
     public void decrementQuantity(View view) {
-        numberOfCoffees--;
-        display(numberOfCoffees);
+        if(numberOfCoffees > 0){
+            numberOfCoffees--;
+            display(numberOfCoffees);
+        }
+
     }
 
     /**
