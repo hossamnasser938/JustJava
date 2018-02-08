@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary(int price){
         EditText nameEditText = (EditText) findViewById(R.id.name_edit_text);
-        return "Name : " + nameEditText.getText() + "\n" + "Quantity : " + numberOfCoffees + "\n" + "Total : " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\n" + "Thank You!";
+        return "Name : " + nameEditText.getText() + "\nQuantity : " + numberOfCoffees + "\nTotal : " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\nThank You!";
     }
 
     /**
