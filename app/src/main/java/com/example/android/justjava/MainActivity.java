@@ -21,7 +21,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int numberOfCoffees = 0;
+    private int numberOfCoffees = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This methods calculates the price of a number of coffees
      */
-    private int calculatePrice(int quantity)
-    {
+    private int calculatePrice(int quantity) {
         return quantity * 5;
     }
 
