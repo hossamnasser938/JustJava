@@ -12,6 +12,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -33,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayMessage("Total " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\n" + "Thankyou!");
+        displayMessage(createOrderSummary(numberOfCoffees));
+    }
+
+    /**
+     * This method returns summary of user order
+     */
+    private String createOrderSummary(int price){
+        EditText nameEditText = (EditText) findViewById(R.id.name_edit_text);
+        return "Name : " + nameEditText.getText() + "\n" + "Quantity : " + numberOfCoffees + "\n" + "Total : " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\n" + "Thank You!";
     }
 
     /**
