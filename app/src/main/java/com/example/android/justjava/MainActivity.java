@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void incrementQuantity(View view) {
         numberOfCoffees++;
-        display(numberOfCoffees);
+        displayQuantity(numberOfCoffees);
     }
 
     /**
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     public void decrementQuantity(View view) {
         if(numberOfCoffees > 0){
             numberOfCoffees--;
-            display(numberOfCoffees);
+            displayQuantity(numberOfCoffees);
         }
 
     }
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
