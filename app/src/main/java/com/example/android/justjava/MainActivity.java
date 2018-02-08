@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayMessage("Total " + NumberFormat.getCurrencyInstance().format(numberOfCoffees * 5) + "\n" + "Thankyou!");
+        displayMessage("Total " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\n" + "Thankyou!");
     }
 
     /**
@@ -69,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
     private void displayMessage(String message) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(message);
+    }
+
+    /**
+     * This methods calculates the price of a number of coffees
+     */
+    private int calculatePrice(int quantity)
+    {
+        return quantity * 5;
     }
 
 }
