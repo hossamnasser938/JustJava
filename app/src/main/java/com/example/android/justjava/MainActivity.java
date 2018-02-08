@@ -12,6 +12,9 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -22,6 +25,8 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int numberOfCoffees = 0;
+    LinearLayout primarylinearLayout = (LinearLayout) findViewById(R.id.primary_linear_layout);
+    Button orderButton = (Button) findViewById(R.id.order_button);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         displayMessage("Total " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\n" + "Thankyou!");
+        primarylinearLayout.addView(createNewTextView("Test"));
+    }
+
+    /**
+     * This function creates a new text view
+     */
+    private TextView createNewTextView(String text){
+        TextView t = new TextView(this);
+        t.setText(text);
+        t.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT , ViewGroup.LayoutParams.WRAP_CONTENT));
+        return t;
     }
 
     /**
