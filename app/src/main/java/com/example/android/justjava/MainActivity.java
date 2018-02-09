@@ -41,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method returns summary of user order
      */
-    private String createOrderSummary(int price){
+    private String createOrderSummary(int quantity){
         EditText nameEditText = (EditText) findViewById(R.id.name_edit_text);
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
         String name = nameEditText.getText().toString();
-        String quantity = NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees));
+        String price = NumberFormat.getCurrencyInstance().format(calculatePrice(quantity));
         boolean whippedCream = whippedCreamCheckBox.isChecked();
         boolean chocolate = chocolateCheckBox.isChecked();
-        return "Name : " + name + "\nAdd whipped cream? "  + whippedCream + "\nAdd chocolate? "  + chocolate + "\nQuantity : " + numberOfCoffees + "\nTotal : " + quantity + "\nThank You!";
+        return "Name : " + name + "\nAdd whipped cream? "  + whippedCream + "\nAdd chocolate? "  + chocolate + "\nQuantity : " + quantity + "\nTotal : " + price + "\nThank You!";
     }
 
 
