@@ -12,6 +12,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -42,8 +43,15 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary(int price){
         EditText nameEditText = (EditText) findViewById(R.id.name_edit_text);
-        return "Name : " + nameEditText.getText() + "\nQuantity : " + numberOfCoffees + "\nTotal : " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\nThank You!";
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
+        String name = nameEditText.getText().toString();
+        String quantity = NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees));
+        boolean whippedCream = whippedCreamCheckBox.isChecked();
+        boolean chocolate = chocolateCheckBox.isChecked();
+        return "Name : " + name + "\nAdd whipped cream? "  + whippedCream + "\nAdd chocolate? "  + chocolate + "\nQuantity : " + numberOfCoffees + "\nTotal : " + quantity + "\nThank You!";
     }
+
 
     /**
      * This method is called when the + button is clicked.
