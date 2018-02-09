@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
         String name = nameEditText.getText().toString();
         String price = NumberFormat.getCurrencyInstance().format(calculatePrice(quantity));
-        boolean whippedCream = whippedCreamCheckBox.isChecked();
-        boolean chocolate = chocolateCheckBox.isChecked();
-        return "Name : " + name + "\nAdd whipped cream? "  + whippedCream + "\nAdd chocolate? "  + chocolate + "\nQuantity : " + quantity + "\nTotal : " + price + "\nThank You!";
+        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+        boolean hasChocolate = chocolateCheckBox.isChecked();
+        return "Name : " + name + "\nAdd whipped cream? "  + hasWhippedCream + "\nAdd chocolate? "  + hasChocolate + "\nQuantity : " + quantity + "\nTotal : " + price + "\nThank You!";
     }
 
 
