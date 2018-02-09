@@ -18,8 +18,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:inputType="text"
-            android:text="Name"
-            android:textColor="#9E9E9E"
+            android:hint="Name"
             android:backgroundTint="#0D47A1"/>
 
         <TextView
