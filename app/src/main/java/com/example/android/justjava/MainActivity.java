@@ -92,7 +92,14 @@ public class MainActivity extends AppCompatActivity {
      * This methods calculates the price of a number of coffees
      */
     private int calculatePrice(int quantity) {
-        return quantity * 5;
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
+        int price = quantity * 5;
+        if(whippedCreamCheckBox.isChecked())
+            price += quantity * 1;    //1 is whippedCream cost
+        if(chocolateCheckBox.isChecked())
+            price += quantity * 2;    //2 is chocolate cost
+        return price;
     }
 
 }
