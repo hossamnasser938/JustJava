@@ -9,6 +9,7 @@
 package com.example.android.justjava;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -46,6 +47,23 @@ public class MainActivity extends AppCompatActivity {
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
         String price = NumberFormat.getCurrencyInstance().format(calculatePrice(hasWhippedCream , hasChocolate));
+        String subject = "JustJava order for Kaptain Kunal";
+        String body = createOrderSummary(name , price , hasWhippedCream , hasChocolate);
+        sendEmail(subject , body);
+    }
+
+
+    /**
+     * This function sends ordery summary as an email
+     */
+    private void sendEmail(String subject , String body){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_SUBJECT , subject);
+        intent.putExtra(Intent.EXTRA_TEXT , body);
+        if(intent.resolveActivity(getPackageManager()) != null){
+            startActivity(intent);
+        }
     }
 
 
