@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
         String name = nameEditText.getText().toString();
-        String price = NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees));
+        String price = NumberFormat.getCurrencyInstance().format(calculatePrice());
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
         return "Order" + numberOfOrders + "Summary\n" + "\nName : " + name + "\nAdd whipped cream? "  + hasWhippedCream + "\nAdd chocolate? "  + hasChocolate + "\nQuantity : " + numberOfCoffees + "\nTotal : " + price + "\nThank You!\n---------";
@@ -105,14 +105,14 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This methods calculates the price of a number of coffees
      */
-    private int calculatePrice(int quantity) {
+    private int calculatePrice() {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
-        int price = quantity * 5;
+        int price = numberOfCoffees * 5;
         if(whippedCreamCheckBox.isChecked())
-            price += quantity;    //whippedCream costs $1
+            price += numberOfCoffees;    //whippedCream costs $1
         if(chocolateCheckBox.isChecked())
-            price += quantity * 2;    //chocolate costs $2
+            price += numberOfCoffees * 2;    //chocolate costs $2
         return price;
     }
 
