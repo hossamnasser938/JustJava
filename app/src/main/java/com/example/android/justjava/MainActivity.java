@@ -26,6 +26,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     private int numberOfCoffees = 0;
+    private int numberOfOrders = 0;
     LinearLayout primaryLinearLayout;
     Button orderButton;
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        numberOfOrders++;
         primaryLinearLayout.addView(createNewTextView(createOrderSummary(numberOfCoffees)) , primaryLinearLayout.getChildCount() - 1);
     }
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         String price = NumberFormat.getCurrencyInstance().format(calculatePrice(quantity));
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
-        return "Name : " + name + "\nAdd whipped cream? "  + hasWhippedCream + "\nAdd chocolate? "  + hasChocolate + "\nQuantity : " + quantity + "\nTotal : " + price + "\nThank You!";
+        return "Order" + numberOfOrders + "Summary\n" + "\nName : " + name + "\nAdd whipped cream? "  + hasWhippedCream + "\nAdd chocolate? "  + hasChocolate + "\nQuantity : " + quantity + "\nTotal : " + price + "\nThank You!\n---------";
     }
 
 
