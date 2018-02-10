@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.NumberFormat;
 
 /**
@@ -80,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
             numberOfCoffees++;
             displayQuantity(numberOfCoffees);
         }
+        else{
+            Toast.makeText(this , "Sorry, You can not order more than 100 cups of coffee" , Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -91,7 +96,9 @@ public class MainActivity extends AppCompatActivity {
             numberOfCoffees--;
             displayQuantity(numberOfCoffees);
         }
-
+        else{
+            Toast.makeText(this , "Sorry, You can not order less than 1 cups of coffee" , Toast.LENGTH_LONG).show();
+        }
     }
 
 
