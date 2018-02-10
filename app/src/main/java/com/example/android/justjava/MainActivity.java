@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         numberOfOrders++;
-        primaryLinearLayout.addView(createNewTextView(createOrderSummary(numberOfCoffees)) , primaryLinearLayout.getChildCount() - 1);
+        primaryLinearLayout.addView(createNewTextView(createOrderSummary()) , primaryLinearLayout.getChildCount() - 1);
     }
 
     /**
@@ -60,15 +60,15 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method returns summary of user order
      */
-    private String createOrderSummary(int quantity){
+    private String createOrderSummary(){
         EditText nameEditText = (EditText) findViewById(R.id.name_edit_text);
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
         String name = nameEditText.getText().toString();
-        String price = NumberFormat.getCurrencyInstance().format(calculatePrice(quantity));
+        String price = NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees));
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
-        return "Order" + numberOfOrders + "Summary\n" + "\nName : " + name + "\nAdd whipped cream? "  + hasWhippedCream + "\nAdd chocolate? "  + hasChocolate + "\nQuantity : " + quantity + "\nTotal : " + price + "\nThank You!\n---------";
+        return "Order" + numberOfOrders + "Summary\n" + "\nName : " + name + "\nAdd whipped cream? "  + hasWhippedCream + "\nAdd chocolate? "  + hasChocolate + "\nQuantity : " + numberOfCoffees + "\nTotal : " + price + "\nThank You!\n---------";
     }
 
 
