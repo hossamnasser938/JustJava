@@ -108,12 +108,12 @@ public class MainActivity extends AppCompatActivity {
     private int calculatePrice() {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
-        int price = numberOfCoffees * 5;
+        int basePrice = 5;
         if(whippedCreamCheckBox.isChecked())
-            price += numberOfCoffees;    //whippedCream costs $1
+            basePrice += 1;    //whippedCream costs $1
         if(chocolateCheckBox.isChecked())
-            price += numberOfCoffees * 2;    //chocolate costs $2
-        return price;
+            basePrice += 2;    //chocolate costs $2
+        return basePrice * numberOfCoffees;
     }
 
 }
