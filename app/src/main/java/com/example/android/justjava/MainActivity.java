@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayMessage("Total " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\n" + "Thankyou!");
-        primarylinearLayout.addView(createNewTextView("Test"));
+        primarylinearLayout.addView(createNewTextView("Total " + NumberFormat.getCurrencyInstance().format(calculatePrice(numberOfCoffees)) + "\n" + "Thankyou!") , 6);
     }
 
     /**
@@ -51,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         TextView t = new TextView(this);
         t.setText(text);
         t.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT , ViewGroup.LayoutParams.WRAP_CONTENT));
+        t.setPadding((int)getResources().getDimension(R.dimen.justJavaPadding) , (int)getResources().getDimension(R.dimen.justJavaPadding) , 0 , 0);
         return t;
     }
 
@@ -79,14 +79,6 @@ public class MainActivity extends AppCompatActivity {
     private void displayQuantity(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
-    }
-
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
     }
 
     /**
