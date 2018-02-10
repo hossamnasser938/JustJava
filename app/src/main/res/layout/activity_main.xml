@@ -6,8 +6,9 @@
     tools:context="com.example.android.justjava.MainActivity" >
 
     <LinearLayout
+        android:id="@+id/primary_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <EditText
@@ -66,7 +67,6 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginBottom="16dp"
                 android:onClick="decrementQuantity"
                 android:text="-" />
 
@@ -74,7 +74,6 @@
                 android:id="@+id/quantity_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
@@ -85,30 +84,13 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:onClick="incrementQuantity"
                 android:text="+" />
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp"
-            android:paddingLeft="16dp"
-            android:text="Order Summary"
-            android:textAllCaps="true" />
-
-        <TextView
-            android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:text="free"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
-
         <Button
+            android:id="@+id/order_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"

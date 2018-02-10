@@ -14,8 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.text.NumberFormat;
 
 /**
@@ -24,18 +26,33 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     private int numberOfCoffees = 0;
+    LinearLayout primaryLinearLayout;
+    Button orderButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        primaryLinearLayout = (LinearLayout) findViewById(R.id.primary_linear_layout);
+        orderButton = (Button) findViewById(R.id.order_button);
     }
 
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayMessage(createOrderSummary(numberOfCoffees));
+        primaryLinearLayout.addView(createNewTextView(createOrderSummary(numberOfCoffees)) , 6);
+    }
+
+    /**
+     * This function creates a new text view
+     */
+    private TextView createNewTextView(String text){
+        TextView t = new TextView(this);
+        t.setText(text);
+        t.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT , ViewGroup.LayoutParams.WRAP_CONTENT));
+        t.setPadding((int)getResources().getDimension(R.dimen.justJavaPadding) , (int)getResources().getDimension(R.dimen.justJavaPadding) , 0 , 0);
+        return t;
     }
 
     /**
@@ -61,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         displayQuantity(numberOfCoffees);
     }
 
+
     /**
      * This method is called when the - button is clicked.
      */
@@ -72,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     /**
      * This method displays the given quantity value on the screen.
      */
@@ -80,13 +99,6 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
-    }
 
     /**
      * This methods calculates the price of a number of coffees
@@ -96,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
         int price = quantity * 5;
         if(whippedCreamCheckBox.isChecked())
-            price += quantity * 1;    //1 is whippedCream cost
+            price += quantity;    //whippedCream costs $1
         if(chocolateCheckBox.isChecked())
-            price += quantity * 2;    //2 is chocolate cost
+            price += quantity * 2;    //chocolate costs $2
         return price;
     }
 
