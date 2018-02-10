@@ -25,13 +25,15 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int numberOfCoffees = 0;
-    LinearLayout primarylinearLayout = (LinearLayout) findViewById(R.id.primary_linear_layout);
-    Button orderButton = (Button) findViewById(R.id.order_button);
+    LinearLayout primarylinearLayout;
+    Button orderButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        primarylinearLayout = (LinearLayout) findViewById(R.id.primary_linear_layout);
+        orderButton = (Button) findViewById(R.id.order_button);
     }
 
     /**
