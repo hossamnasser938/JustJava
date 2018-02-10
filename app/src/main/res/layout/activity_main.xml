@@ -18,7 +18,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:inputType="text"
+            android:inputType="textCapWords"
             android:hint="Name"
             android:backgroundTint="#0D47A1"/>
 
