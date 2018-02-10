@@ -25,7 +25,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private int numberOfCoffees = 0;
+    private int numberOfCoffees = 1;
     private int numberOfOrders = 0;
     LinearLayout primaryLinearLayout;
     Button orderButton;
@@ -76,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the + button is clicked.
      */
     public void incrementQuantity(View view) {
-        numberOfCoffees++;
-        displayQuantity(numberOfCoffees);
+        if(numberOfCoffees < 100) {
+            numberOfCoffees++;
+            displayQuantity(numberOfCoffees);
+        }
     }
 
 
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the - button is clicked.
      */
     public void decrementQuantity(View view) {
-        if(numberOfCoffees > 0){
+        if(numberOfCoffees > 1){
             numberOfCoffees--;
             displayQuantity(numberOfCoffees);
         }
