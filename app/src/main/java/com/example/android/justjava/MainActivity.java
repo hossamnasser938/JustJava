@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
         String price = NumberFormat.getCurrencyInstance().format(calculatePrice(hasWhippedCream , hasChocolate));
-        String subject = "JustJava order for Kaptain Kunal";
+        String subject = "JustJava order for " + name;
         String body = createOrderSummary(name , price , hasWhippedCream , hasChocolate);
         sendEmail(subject , body);
     }
