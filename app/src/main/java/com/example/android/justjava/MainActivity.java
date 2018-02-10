@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
         String price = NumberFormat.getCurrencyInstance().format(calculatePrice(hasWhippedCream , hasChocolate));
-        String subject = "JustJava order for " + name;
+        String subject = getResources().getString(R.string.email_subject) + name;
         String body = createOrderSummary(name , price , hasWhippedCream , hasChocolate);
         sendEmail(subject , body);
     }
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
      * This method returns summary of user order
      */
     private String createOrderSummary(String name , String price , boolean hasWhippedCream , boolean hasChocolate){
-        return "Order" + "Summary\n" + "\nName : " + name + "\nAdd whipped cream? "  + hasWhippedCream + "\nAdd chocolate? "  + hasChocolate + "\nQuantity : " + numberOfCoffees + "\nTotal : " + price + "\nThank You!\n---------";
+        return getResources().getString(R.string.order_summary) + "\n\n" + getResources().getString(R.string.name) + " : " + name + "\n" + getResources().getString(R.string.add) + getResources().getString(R.string.whipped_cream) + "?"  + hasWhippedCream + "\n" + getResources().getString(R.string.add) + getResources().getString(R.string.chocolate) + "?"  + hasChocolate + "\n" + getResources().getString(R.string.quantity) + " : " + numberOfCoffees + "\n" + getResources().getString(R.string.total) + " : " + price + "\n" + getResources().getString(R.string.thank_you) + "\n---------";
     }
 
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             displayQuantity(numberOfCoffees);
         }
         else{
-            Toast.makeText(this , "Sorry, You can not order more than 100 cups of coffee" , Toast.LENGTH_LONG).show();
+            Toast.makeText(this , getResources().getString(R.string.more_than_100_toast) , Toast.LENGTH_LONG).show();
         }
     }
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             displayQuantity(numberOfCoffees);
         }
         else{
-            Toast.makeText(this , "Sorry, You can not order less than 1 cups of coffee" , Toast.LENGTH_LONG).show();
+            Toast.makeText(this , getResources().getString(R.string.less_than_1_toast) , Toast.LENGTH_LONG).show();
         }
     }
 
