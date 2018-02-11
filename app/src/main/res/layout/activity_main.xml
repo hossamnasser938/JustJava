@@ -76,6 +76,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/order_button"
             style="@style/basic_style"
             android:onClick="submitOrder"
             android:text="@string/order" />
